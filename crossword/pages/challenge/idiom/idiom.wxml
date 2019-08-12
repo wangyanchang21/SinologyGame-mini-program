@@ -1,0 +1,69 @@
+
+<view class="idiom-page">
+
+  <!-- 关卡 -->
+  <view class="level-view">第 {{level}} 关</view>
+
+  <!-- 成语 -->
+  <view class="idiom-view">
+    <view wx:for="{{idioms}}" wx:key="*this" class="idiom-word-view-{{index==blankIndex ? 2 : 1}}"> {{index==blankIndex ? blankWord :item}} </view>
+  </view>
+
+  <!-- 选择 -->
+  <view class="select-grids">
+    <view wx:for="{{puzzles}}" wx:key="{{item}}" class="select-word-view-1" hover-class="select-word-view-2" bindtap="chooseWord" data-sel-index="{{index}}"> {{item}} </view>
+  </view>
+
+</view>
+
+<!-- Failed -->
+<view class="result-failed-view{{isFailed ? '_show' : ''}}">
+  <view class="weui-mask"></view>
+    <view class="weui-dialog__wrp">
+
+      <view class="weui-dialog">
+        <!-- Header -->
+        <view class="weui-dialog__hd">
+          <view class="weui-dialog__title">{{failedTitle}}</view>
+        </view>
+
+        <!-- Body -->
+        <view class="weui-dialog__bd">
+          <image class="weui-article__img" src="/images/challenge/huaxiaAd.png" mode="scaleToFill" style="max-width:100%;" bindtap="goToAdPage"/>
+        </view>
+
+        <!-- Footer -->
+        <view class="weui-dialog__ft">
+            <view class="weui-dialog__btn" bindtap="redirectToHome">{{failedGiveUp}}</view>
+            <view class="weui-dialog__btn weui-dialog__btn_default" bindtap="closeHuaxiaAd">{{failedRevive}}</view>
+        </view>
+
+      </view>
+    </view>
+</view>
+
+<!-- Success -->
+<view class="result-failed-view{{isSuccess ? '_show' : ''}}">
+  <view class="weui-mask" bindtap="closeDialog"></view>
+    <view class="weui-dialog__wrp">
+
+      <view class="weui-dialog">
+
+        <!-- Header -->
+        <view class="weui-dialog__hd">
+          <view class="weui-dialog__title">{{successTitle}}</view>
+        </view>
+
+        <!-- Body -->
+        <view class="weui-dialog__bd">
+          <view class="weui-dialog__title">{{successContent}}{{idiom}}</view>
+        </view>
+
+        <!-- Footer -->
+        <view class="weui-dialog__ft">
+            <view class="weui-dialog__btn" bindtap="redirectToHome">{{successHome}}</view>
+            <view class="weui-dialog__btn weui-dialog__btn_default" bindtap="goToNext">{{successNext}}</view>
+        </view>
+      </view>
+    </view>
+</view>

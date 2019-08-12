@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/challenge/challenge",
+    "pages/poetry/poetry",
+    "pages/sort/sort",
+    "pages/me/me",
+    "pages/challenge/idiom/idiom",
+    "pages/common/web-view",
+    "pages/me/login-records/login-records"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#00B796",
+    "navigationBarTitleText": "填字挑战",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "dark",
+    "backgroundColorTop": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "backgroundColorBottom": "#F8F8F8",
+    "enablePullDownRefresh": false,
+    "pageOrientation": "portrait"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#F3F3F3",
+    "color": "#999999",
+    "selectedColor": "#00B796",
+    "list": [
+      {
+        "pagePath": "pages/challenge/challenge",
+        "iconPath": "images/tab/challenge.png",
+        "selectedIconPath": "images/tab/challenge_HL.png",
+        "text": "挑战"
+      },
+      {
+        "pagePath": "pages/poetry/poetry",
+        "iconPath": "images/tab/poetry.png",
+        "selectedIconPath": "images/tab/poetry_HL.png",
+        "text": "诗词"
+      },
+      {
+        "pagePath": "pages/sort/sort",
+        "iconPath": "images/tab/sort.png",
+        "selectedIconPath": "images/tab/sort_HL.png",
+        "text": "排行"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "images/tab/me.png",
+        "selectedIconPath": "images/tab/me_HL.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 20000
+  },
+  "style": "v2",
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

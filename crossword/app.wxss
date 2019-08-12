@@ -1,0 +1,85 @@
+@import 'components/style/weui.wxss';
+
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 100%;
+}
+
+button{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+form{
+  width: 100%;
+}
+
+.horizontal-center-page {
+  background: #D5EBEE;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-family: Hannotate SC;
+} 
+
+.horizontal-page {
+  background: #D5EBEE;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-family: Hannotate SC;
+}
+
+.vertical-center-page {
+  background: #D5EBEE;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-family: Hannotate SC;
+}
+
+.vertical-page {
+  background: #D5EBEE;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-family: Hannotate SC;
+}
+
+.home-title {
+  display: block;
+  padding: 20rpx;
+  line-height: 100%;
+  font-size: 100rpx;
+  color: #333333;
+  text-align: center;
+  font-family: Wawati SC;
+}
+
+.letter-font {
+  font-family: Hannotate SC;
+}
+
+.red-view {
+  background: red;
+  height: 100rpx;
+  width: 100%;
+}

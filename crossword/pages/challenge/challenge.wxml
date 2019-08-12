@@ -1,0 +1,4 @@
+<view class="vertical-center-page">
+  <view class="home-title">成语游戏</view>
+  <button bindtap="beginGame">开始游戏</button>
+</view>

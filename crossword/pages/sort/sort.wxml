@@ -1,0 +1,15 @@
+<!--pages/sort/sort.wxml-->
+
+<view class="sort-cells-hd">全网排名</view>
+<view class="weui-cells weui-cells_after-title">
+  <view wx:for="{{sort}}" wx:key="*this" class="weui-cell">
+    <!-- Cell Left -->
+    <view class="weui-cell__hd sort-cell-hd">
+      <view class="sort-view">{{item.rank}}</view>
+      <image src="{{item.avatorURL}}" class="avator-image"></image>
+    </view>
+    <!-- Cell Middle Right -->
+    <view class="weui-cell__bd letter-font">{{item.name}}</view>
+    <view class="weui-cell__ft letter-font">第{{item.passLevel}}关</view>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<!--pages/me/me.wxml-->
+<view class="me-page">
+
+  <!-- 等级 -->
+  <image class="member-level" src="/images/me/member-v{{memberLevel}}.png" mode="scaleToFill">
+    <view class="member-level-desc">英雄徽章</view>
+  </image>
+
+  <!-- 个人信息 -->
+  <view class="user-view">
+    <image bindtap="bindViewTap" class="user-info-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <view class="user-info-view">
+      <text class="user-info-item">江湖贺号：{{userInfo.nickName}}</text>
+      <text class="user-info-item">英雄出处：{{userInfo.province}}-{{userInfo.country}}</text>
+      <text class="user-info-item">巅峰破关：第888关</text>
+    </view>
+  </view>
+
+  <!-- 诗词 -->
+  <view class="poetry-view">
+    <view class="poetry-item poetry-item-1">
+      <image class="poetry-image" src="/images/me/poetry.png"> </image>
+      <view>已阅{{poetryNum}}首</view>
+    </view>
+    <view class="poetry-item poetry-item-2">
+      <image class="poetry-image" src="/images/me/words.png"> </image>
+      <view>已阅{{wordsNum}}首</view>
+    </view>
+  </view>
+</view>
+
+<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>

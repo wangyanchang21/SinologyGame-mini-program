@@ -1,0 +1,92 @@
+/* pages/me/me.wxss */
+
+.me-page {
+  background: #F3F3F3;
+  height: 100%;
+  display: block;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-family: Hannotate SC;
+}
+
+.member-level {
+  width: 100%;
+  height: 350rpx;
+  position: relative;
+}
+
+.member-level-desc {
+  position: absolute;
+  left: 350rpx;
+  top: 150rpx;
+  font-size: 50rpx;
+  color: white;
+  font-family: Wawati SC;
+}
+
+.user-view {
+  background: #66BDE1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 300rpx;
+  border-radius: 20rpx;
+}
+
+.user-info-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin-left: 30rpx;
+  border-radius: 64rpx;
+  border: 6rpx dotted white; 
+}
+
+.user-info-view {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30rpx;
+  font-family: Hannotate SC;
+}
+
+.user-info-item {
+  color: white;
+  margin: 10rpx;
+}
+
+.poetry-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  width: 100%;
+  height: 300rpx;
+  border-radius: 20rpx;
+}
+
+.poetry-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 47%;
+  height: 300rpx;
+  border-radius: 20rpx;
+}
+
+.poetry-item-1 {
+  background: #AFEADC;
+}
+
+.poetry-item-2 {
+  background: #B9EFA3;
+}
+
+.poetry-image {
+  margin-bottom: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}

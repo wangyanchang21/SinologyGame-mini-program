@@ -1,0 +1,3 @@
+<view>
+  <web-view src="{{url}}" onMessage="receiveMsg" bindload="loadSuccess" binderror="loadFailed"></web-view>
+</view>
