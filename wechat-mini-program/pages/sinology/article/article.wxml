@@ -1,0 +1,9 @@
+<!--pages/sinology/article/article.wxml-->
+
+<view class="article-page">
+
+  <view class="title">{{title}}</view>
+  <view class="author">{{author}}</view>
+  <view wx:for="{{paragraphs}}" wx:key="{{item.title}}" class="content">{{item}}</view>
+
+</view>

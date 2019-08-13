@@ -1,0 +1,55 @@
+/* pages/sinology/sinology.wxss */
+
+.sinology-page {
+  background: #F3F3F3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 35rpx;
+  font-weight: bold;
+  font-family: Hannotate SC;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.sinology-item-1-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 20rpx;
+  width: 150rpx;
+  height: 320rpx;
+  border-radius: 20rpx;
+}
+
+.sinology-item-1 {
+  text-align: center;
+  width: 150rpx;
+  height: 150rpx;
+  line-height: 150rpx;
+  border-radius: 20rpx;
+}
+
+.sinology-item-2 {
+  text-align: center;
+  font-size: 90rpx;
+  width: 420rpx;
+  height: 320rpx;
+  margin: 20rpx;
+  line-height: 320rpx;
+  border-radius: 20rpx;
+}
+
+.sinology-item-3 {
+  text-align: center;
+  font-size: 60rpx;
+  width: 610rpx;
+  height: 150rpx;
+  margin: 20rpx;
+  line-height: 150rpx;
+  border-radius: 20rpx;
+}

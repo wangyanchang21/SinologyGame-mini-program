@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": true,
+    "disableScroll": false,
+    "navigationBarTitleText": "英雄榜"
 }

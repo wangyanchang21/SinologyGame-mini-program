@@ -1,7 +1,7 @@
 @import 'components/style/weui.wxss';
 
 page {
-  background-color: #F8F8F8;
+  background-color: #F3F3F3;
   height: 100%;
   font-size: 32rpx;
   line-height: 100%;
@@ -78,8 +78,30 @@ form{
   font-family: Hannotate SC;
 }
 
-.red-view {
-  background: red;
-  height: 100rpx;
-  width: 100%;
+.color-light-yellow {
+  background: #FCEEA8;
+}
+
+.color-light-green {
+  background: #A9EE8A;
+}
+
+.color-light-blue {
+  background: #74D1EA;
+}
+
+.color-light-orange {
+  background: #FFDFB4;
+}
+
+.color-light-pink {
+  background: #FFC0C8;
+}
+
+.color-light-purple {
+  background: #C0AEE7;
+}
+
+.color-light-cyan {
+  background: #6DD5C3;
 }

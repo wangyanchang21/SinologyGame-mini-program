@@ -1,0 +1,33 @@
+/* pages/sinology/article/article.wxss */
+
+.article-page {
+  background: #F3F3F3;
+  display: block;
+  font-family: Hannotate SC;
+  margin: 20rpx;
+}
+
+.title {
+  text-align: center;
+  font-size: 60rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.author {
+  text-align: center;
+  font-size: 40rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.content {
+  text-align: center;
+  font-size: 30rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  flex: block;
+}

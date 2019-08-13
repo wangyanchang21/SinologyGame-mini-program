@@ -1,21 +1,23 @@
 {
   "pages": [
     "pages/challenge/challenge",
-    "pages/poetry/poetry",
+    "pages/sinology/sinology",
     "pages/sort/sort",
     "pages/me/me",
     "pages/challenge/idiom/idiom",
     "pages/common/web-view",
-    "pages/me/login-records/login-records"
+    "pages/me/login-records/login-records",
+    "pages/sinology/article/article",
+    "pages/sinology/article-list/article-list"
   ],
   "window": {
     "navigationBarBackgroundColor": "#00B796",
-    "navigationBarTitleText": "填字挑战",
+    "navigationBarTitleText": "国学",
     "navigationBarTextStyle": "white",
     "backgroundTextStyle": "dark",
-    "backgroundColorTop": "#F8F8F8",
-    "backgroundColor": "#F8F8F8",
-    "backgroundColorBottom": "#F8F8F8",
+    "backgroundColorTop": "#F3F3F3",
+    "backgroundColor": "#F3F3F3",
+    "backgroundColorBottom": "#F3F3F3",
     "enablePullDownRefresh": false,
     "pageOrientation": "portrait"
   },
@@ -32,10 +34,10 @@
         "text": "挑战"
       },
       {
-        "pagePath": "pages/poetry/poetry",
-        "iconPath": "images/tab/poetry.png",
-        "selectedIconPath": "images/tab/poetry_HL.png",
-        "text": "诗词"
+        "pagePath": "pages/sinology/sinology",
+        "iconPath": "images/tab/sinology.png",
+        "selectedIconPath": "images/tab/sinology_HL.png",
+        "text": "国学"
       },
       {
         "pagePath": "pages/sort/sort",

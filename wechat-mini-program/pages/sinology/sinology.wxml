@@ -1,0 +1,22 @@
+<!--pages/sinology/sinology.wxml-->
+
+<view class="sinology-page">
+
+  <!-- 论语、孟子、唐诗 -->
+  <view class="sinology-item-1-container">
+    <view class="sinology-item-1 color-light-yellow" bindtap="goToArticleList" data-select-book="{{books[0]}}">{{books[0]}}</view>
+    <view class="sinology-item-1 color-light-green" bindtap="goToArticleList" data-select-book="{{books[1]}}">{{books[1]}}</view>
+  </view>
+  <view class="sinology-item-2 color-light-blue" bindtap="goToArticleList" data-select-book="{{books[2]}}">{{books[2]}}</view>
+
+  <!-- 诗经 -->
+  <view class="sinology-item-3 color-light-cyan" bindtap="goToArticleList" data-select-book="{{books[3]}}">{{books[3]}}</view>
+
+  <!-- 宋词、大学、中庸 -->
+  <view class="sinology-item-2 color-light-orange" bindtap="goToArticleList" data-select-book="{{books[4]}}">{{books[4]}}</view>
+  <view class="sinology-item-1-container">
+    <view class="sinology-item-1 color-light-pink" bindtap="goToArticleList" data-select-book="{{books[5]}}">{{books[5]}}</view>
+    <view class="sinology-item-1 color-light-purple" bindtap="goToArticleList" data-select-book="{{books[6]}}">{{books[6]}}</view>
+  </view>
+
+</view>

@@ -43,6 +43,7 @@ Page({
 
   //事件处理函数
   bindViewTap() {
+    // debug状态下执行
     wx.navigateTo({
       url: '/pages/me/login-records/login-records'
     })
