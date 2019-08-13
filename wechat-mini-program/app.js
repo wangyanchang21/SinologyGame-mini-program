@@ -34,7 +34,7 @@ App({
       }
     })
   },
-  
+
   globalData: {
     userInfo: null,
     currentLevel: 1
