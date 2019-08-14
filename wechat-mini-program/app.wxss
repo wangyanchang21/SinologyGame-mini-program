@@ -1,9 +1,17 @@
 @import 'components/style/weui.wxss';
 
-@font-face {
+/*
+  引入自定义字体，字体将会在后台进行异步下载，下载期间显示为系统字体，完成后自动替换。
+  由于真机调试加载过慢, 故将其注释，系统则一直显示默认字体。
+
+ @font-face {
     font-family: 'Hannotate SC';
     src: url("https://github.com/wangyanchang21/SinologyGame-mini-program/raw/master/Hannotate.ttf")
-}
+} 
+@font-face {
+    font-family: 'Wawati SC';
+    src: url("https://github.com/wangyanchang21/SinologyGame-mini-program/raw/master/Wawati.ttf")
+} */
 
 page {
   background-color: #F3F3F3;
@@ -76,7 +84,11 @@ form{
   font-size: 100rpx;
   color: #333333;
   text-align: center;
-  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  font-family: Wawati SC;
+}
+
+.wawa-font {
+  font-family: Wawati SC;
 }
 
 .letter-font {

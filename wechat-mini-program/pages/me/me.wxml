@@ -3,7 +3,7 @@
 
   <!-- 等级 -->
   <image class="member-level" src="/images/me/member-v{{memberLevel}}.png" mode="scaleToFill">
-    <view class="member-level-desc">英雄徽章</view>
+    <view class="member-level-desc wawa-font">英雄徽章</view>
   </image>
 
   <!-- 个人信息 -->
@@ -29,8 +29,6 @@
   </view>
 </view>
 
-<view wx:if="{{!isLogin && canIUse}}" class="weui-mask">
-  <view class="weui-dialog__wrp">
-    <button class="user-info-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 请授权登录 </button>
-  </view>
+<view wx:if="{{!isLogin && canIUse}}" class="weui-dialog__wrp promise-view">
+  <button class="user-info-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 请授权登录 </button>
 </view>

@@ -1,6 +1,6 @@
 <!--pages/sort/sort.wxml-->
 
-<view class="sort-cells-hd">全网排名</view>
+<view class="sort-cells-hd wawa-font">全网排名</view>
 <view class="weui-cells weui-cells_after-title">
   <view wx:for="{{sort}}" wx:key="*this" class="weui-cell">
     <!-- Cell Left -->

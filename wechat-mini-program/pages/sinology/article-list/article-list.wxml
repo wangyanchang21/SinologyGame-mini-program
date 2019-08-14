@@ -1,6 +1,6 @@
 <!--pages/sinology/article-list/article-list.wxml-->
 
-<view class="articles-hd">{{title}}全集</view>
+<view class="articles-hd wawa-font">{{title}}全集</view>
 
 <view class="weui-cells weui-cells_after-title">
   <view wx:for="{{articles}}" wx:key="{{item.title}}" class="weui-cell" bindtap="goToDetail" data-select-title="{{item.title}}">

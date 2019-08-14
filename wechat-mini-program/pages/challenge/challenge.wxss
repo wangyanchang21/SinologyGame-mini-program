@@ -4,5 +4,7 @@
   color: #333333;
   width: 50%;
   height: 100rpx;
-  line-height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

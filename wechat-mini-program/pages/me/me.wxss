@@ -22,7 +22,6 @@
   top: 150rpx;
   font-size: 50rpx;
   color: white;
-  font-family: Hannotate SC;
 }
 
 .user-view {
@@ -95,4 +94,12 @@
   width: 300rpx;
   height: 100rpx;
   line-height: 100rpx;
+}
+
+.promise-view {
+  background: #F3F3F3;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
