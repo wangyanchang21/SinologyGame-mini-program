@@ -99,6 +99,12 @@ Page({
     ]
   },
 
+  onPullDownRefresh() {
+    setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 3000);
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */

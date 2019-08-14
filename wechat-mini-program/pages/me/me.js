@@ -41,6 +41,12 @@ Page({
     }
   },
 
+  onPullDownRefresh() {
+    setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 3000);
+  },
+
   //事件处理函数
   bindViewTap() {
     // debug状态下执行
