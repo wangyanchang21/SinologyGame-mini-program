@@ -1,5 +1,10 @@
 @import 'components/style/weui.wxss';
 
+@font-face {
+    font-family: 'Hannotate SC';
+    src: url("https://github.com/wangyanchang21/SinologyGame-mini-program/raw/master/Hannotate.ttf")
+}
+
 page {
   background-color: #F3F3F3;
   height: 100%;
@@ -17,7 +22,7 @@ form{
 }
 
 .horizontal-center-page {
-  background: #D5EBEE;
+  background: #F3F3F3;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -25,11 +30,11 @@ form{
   justify-content: space-around;
   box-sizing: border-box;
   font-size: 32rpx;
-  font-family: Hannotate SC;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 } 
 
 .horizontal-page {
-  background: #D5EBEE;
+  background: #F3F3F3;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -37,11 +42,11 @@ form{
   justify-content: flex-start;
   box-sizing: border-box;
   font-size: 32rpx;
-  font-family: Hannotate SC;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 
 .vertical-center-page {
-  background: #D5EBEE;
+  background: #F3F3F3;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -49,11 +54,11 @@ form{
   justify-content: space-around;
   box-sizing: border-box;
   font-size: 32rpx;
-  font-family: Hannotate SC;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 
 .vertical-page {
-  background: #D5EBEE;
+  background: #F3F3F3;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -61,7 +66,7 @@ form{
   justify-content: flex-start;
   box-sizing: border-box;
   font-size: 32rpx;
-  font-family: Hannotate SC;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 
 .home-title {
@@ -71,11 +76,15 @@ form{
   font-size: 100rpx;
   color: #333333;
   text-align: center;
-  font-family: Wawati SC;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 
 .letter-font {
   font-family: Hannotate SC;
+}
+
+.system-font {
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 
 .color-light-yellow {
@@ -104,4 +113,16 @@ form{
 
 .color-light-cyan {
   background: #6DD5C3;
+}
+
+.color-main {
+  background: #00B796;
+}
+
+.color-main-light {
+  background: #D5EBEE;
+}
+
+.color-background {
+  background: #F3F3F3;
 }

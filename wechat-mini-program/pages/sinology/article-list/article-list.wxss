@@ -7,5 +7,5 @@
   text-align: center;
   color: #333333;
   font-size: 50rpx;
-  font-family: Wawati SC;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }

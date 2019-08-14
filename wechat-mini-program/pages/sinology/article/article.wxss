@@ -13,6 +13,7 @@
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 
 .author {
@@ -21,6 +22,8 @@
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  margin-bottom: 20rpx;
 }
 
 .content {

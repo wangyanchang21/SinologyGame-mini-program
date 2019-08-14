@@ -22,7 +22,7 @@
   top: 150rpx;
   font-size: 50rpx;
   color: white;
-  font-family: Wawati SC;
+  font-family: Hannotate SC;
 }
 
 .user-view {

@@ -16,8 +16,6 @@
 .level-view {
   text-align: center;
   font-size: 35rpx;
-  font-family: Wawati SC;
-  /* font-family: Hanzipen SC; */
   width: 400rpx;
   height: 110rpx;
   line-height: 100rpx;
@@ -37,7 +35,7 @@
   color: #333333;
   text-align: center;
   font-size: 50rpx;
-  font-family: Yuanti SC;
+  font-family: Hannotate SC;
 }
 
 .idiom-word-view-1 {
