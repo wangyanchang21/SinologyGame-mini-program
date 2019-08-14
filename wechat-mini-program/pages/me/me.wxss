@@ -90,3 +90,9 @@
   height: 100rpx;
   border-radius: 50rpx;
 }
+
+.user-info-button {
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}

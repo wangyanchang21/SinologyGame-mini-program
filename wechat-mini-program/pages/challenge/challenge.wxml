@@ -1,5 +1,5 @@
 
 <view class="vertical-center-page color-main-light">
   <view class="home-title">成语挑战</view>
-  <button class="begin-button" bindtap="beginGame">开始游戏</button>
+  <button class="begin-button" open-type="getUserInfo" bindgetuserinfo="beginGame">开始游戏</button>
 </view>

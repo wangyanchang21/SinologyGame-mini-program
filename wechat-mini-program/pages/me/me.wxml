@@ -29,4 +29,8 @@
   </view>
 </view>
 
-<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+<view wx:if="{{!isLogin && canIUse}}" class="weui-mask">
+  <view class="weui-dialog__wrp">
+    <button class="user-info-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 请授权登录 </button>
+  </view>
+</view>
