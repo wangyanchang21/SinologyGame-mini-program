@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/challenge/challenge",
     "pages/sinology/sinology",
+    "pages/challenge/challenge",
     "pages/sort/sort",
     "pages/me/me",
     "pages/challenge/idiom/idiom",
@@ -28,16 +28,16 @@
     "selectedColor": "#00B796",
     "list": [
       {
-        "pagePath": "pages/challenge/challenge",
-        "iconPath": "images/tab/challenge.png",
-        "selectedIconPath": "images/tab/challenge_HL.png",
-        "text": "挑战"
-      },
-      {
         "pagePath": "pages/sinology/sinology",
         "iconPath": "images/tab/sinology.png",
         "selectedIconPath": "images/tab/sinology_HL.png",
         "text": "国学"
+      },
+      {
+        "pagePath": "pages/challenge/challenge",
+        "iconPath": "images/tab/challenge.png",
+        "selectedIconPath": "images/tab/challenge_HL.png",
+        "text": "挑战"
       },
       {
         "pagePath": "pages/sort/sort",

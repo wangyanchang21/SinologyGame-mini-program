@@ -10,10 +10,15 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(res);
+
+        if (res.code) {
+          this.getSession(res.code);
+        } else {
+          console.log('登录失败！' + res.errMsg);
+        }
       }
-    })
+    });
 
     // 获取用户信息
     wx.getSetting({
@@ -37,8 +42,31 @@ App({
     })
   },
 
+  // 向后台发起login
+  getSession(code) {
+    wx.request({
+      url: 'http://localhost:8080/getSession',
+      data: {
+        code: code
+      },
+      success: session => {
+        console.log(session);
+        
+        if (session.data.openid) {
+          this.globalData.ssessionKey = session.data.session_key;
+          this.globalData.openId = session.data.openid;
+        } else {
+          console.log('Session获取失败！' + res.errMsg);
+        }
+      }
+    });
+  }
+  ,
+
   globalData: {
     userInfo: null,
+    ssessionKey: null,
+    openId: null,
     currentLevel: 1
   }
 })
