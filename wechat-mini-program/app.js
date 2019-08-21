@@ -39,7 +39,18 @@ App({
           })
         }
       }
-    })
+    });
+
+    // 获取小程序全局唯一后台接口调用凭据
+    wx.request({
+      url: 'http://localhost:8080/getToken',
+      success: res => {
+        console.log(res);
+        if (res.data.access_token) {
+          this.globalData.token = res.data.access_token;
+        }
+      }
+    });
   },
 
   // 向后台发起login
@@ -51,7 +62,7 @@ App({
       },
       success: session => {
         console.log(session);
-        
+
         if (session.data.openid) {
           this.globalData.ssessionKey = session.data.session_key;
           this.globalData.openId = session.data.openid;
@@ -60,13 +71,13 @@ App({
         }
       }
     });
-  }
-  ,
+  },
 
   globalData: {
     userInfo: null,
     ssessionKey: null,
     openId: null,
+    token: null,
     currentLevel: 1
   }
 })
