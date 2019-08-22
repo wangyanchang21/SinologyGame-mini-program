@@ -2,7 +2,7 @@
 
 <view class="article-page">
 
-  <view class="title">{{title}}</view>
+  <view class="title">{{title}} {{chapter}} {{section}}</view>
   <view class="author">{{author}}</view>
   <view wx:for="{{paragraphs}}" wx:key="{{item.title}}" class="content">{{item}}</view>
 
