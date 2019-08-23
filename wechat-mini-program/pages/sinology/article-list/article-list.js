@@ -6,71 +6,86 @@ Page({
 
   data: {
     page: 0,
-    totalPages: 10,
+    totalPages: 0,
+    listInterface: '',
     
     title: '',
     articles: []
   },
 
   onLoad(options) {
-    // 页面初次加载，请求第一页数据
-    this.requestPoemList(0);
-
     this.setData({
       title: options.title
     });
+
+    // 初次加载，确定接口和总页数，并请求第一页数据
+    this.makeInterfaceAndPages();
+    this.requestPoemList();
   },
 
   onReachBottom() {
     // 下拉触底，先判断是否有请求正在进行中
-    if (!this.loading && page < totalPages) {
+    if (!this.loading && this.data.page <= this.data.totalPages) {
       this.loading = true;
-      this.requestPoemList(page);
+      this.requestPoemList(this.data.page);
     }
   },
 
-  onShareAppMessage: function () {
-
-  },
-
-  requestPoemList(page) {
+  // 接口和总页数分类
+  makeInterfaceAndPages() {
     var book = '';
-    var bookPages = 1;
-    if(options.title == '唐诗') {
+    var bookPages = 0;
+    if (this.data.title == '唐诗') {
       book = 'getTangList';
-      bookPages = 56;
-    } else if (options.title == '宋词') {
+      bookPages = 55;
+    } else if (this.data.title == '宋词') {
       book = 'getSongList';
-      bookPages = 22;
-    } else if (options.title == '论语') {
+      bookPages = 21;
+    } else if (this.data.title == '论语') {
       book = 'getLunyuList';
-    } else if (options.title == '孟子') {
+    } else if (this.data.title == '孟子') {
       book = 'getMengziList';
-    } else if (options.title == '诗经') {
+    } else if (this.data.title == '诗经') {
       book = 'getShijingList';
-    } else if (options.title == '大学') {
+    } else if (this.data.title == '大学') {
       book = 'getDaxue';
-    } else if (options.title == '中庸') {
+    } else if (this.data.title == '中庸') {
       book = 'getZhongyong';
     }
 
+    this.setData({
+      listInterface: book,
+      totalPages: bookPages
+    });
+
+  },
+
+  requestPoemList() {
+    wx.showLoading({
+      title: '加载中',
+    });
+
+    // Request
     var that = this;
     wx.request({
-      url: util.server + book,
+      url: util.server + that.data.listInterface,
       data: {
-        page: that.page,
-        totalPages: totalPages -1
+        page: that.data.page
       },
       success: res => {
+        // 数据拼接
         if (res.data.isSuccess) {
-          console.log(res.data.data);
           that.setData({
-            articles: res.data.data
+            articles: that.data.articles.concat(res.data.data)
           });
         }
       },
       complete: res => {
-        this.loading = false;
+        // 更新当前页数，结束 Loading
+        wx.hideLoading();
+        that.setData({
+          page: that.data.page + 1
+        });
       }
     });
   },

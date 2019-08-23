@@ -13,3 +13,7 @@
     <view class="weui-cell__ft letter-font ">{{item.author}}</view>
   </view>
 </view>
+
+<view class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line color-background">{{page <= totalPages ? '上拉加载' : '已加载完毕'}}</view>
+</view>
