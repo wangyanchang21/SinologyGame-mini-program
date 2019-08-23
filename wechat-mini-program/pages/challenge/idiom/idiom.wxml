@@ -6,12 +6,12 @@
 
   <!-- 成语 -->
   <view class="idiom-view">
-    <view wx:for="{{idioms}}" wx:key="*this" class="idiom-word-view-{{index==blankIndex ? 2 : 1}}"> {{index==blankIndex ? blankWord :item}} </view>
+    <view wx:for="{{useIdioms}}" wx:key="*this" class="idiom-word-view-{{index==blankIndex ? 2 : 1}}"> {{index==blankIndex ? blankWord :item}} </view>
   </view>
 
   <!-- 选择 -->
   <view class="select-grids">
-    <view wx:for="{{puzzles}}" wx:key="{{item}}" class="select-word-view-1" hover-class="select-word-view-2" bindtap="chooseWord" data-sel-index="{{index}}"> {{item}} </view>
+    <view wx:for="{{usePuzzles}}" wx:key="{{item}}" class="select-word-view-1" hover-class="select-word-view-2" bindtap="chooseWord" data-sel-index="{{index}}"> {{item}} </view>
   </view>
 
 </view>

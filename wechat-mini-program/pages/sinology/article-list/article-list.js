@@ -18,9 +18,8 @@ Page({
       title: options.title
     });
 
-    // 初次加载，确定接口和总页数，并请求第一页数据
+    // 初次加载，确定接口和总页数
     this.makeInterfaceAndPages();
-    this.requestPoemList();
   },
 
   onReachBottom() {
@@ -29,6 +28,11 @@ Page({
       this.loading = true;
       this.requestPoemList(this.data.page);
     }
+  },
+
+  onReady: function () {
+    // 请求第一页数据
+    this.requestPoemList();
   },
 
   // 接口和总页数分类
@@ -94,7 +98,6 @@ Page({
     let index = event.currentTarget.dataset.selectNum;
     let poem = this.data.articles[index];
     var poemJson = JSON.stringify(poem);
-
     console.log(poem);
 
     wx.navigateTo({

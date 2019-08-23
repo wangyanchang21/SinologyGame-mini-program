@@ -93,7 +93,9 @@
 .user-info-button {
   width: 300rpx;
   height: 100rpx;
-  line-height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .promise-view {

@@ -1,16 +1,24 @@
 // pages/challenge/idiom/idiom.js
+const util = require('../../../utils/util.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    // request data
+    idioms: [],
+    puzzles: [],
+
+    // made-up data
     level: 1,
-    idiom: '胸有成竹',
-    idioms: ['胸', '有', '成', '竹'],
-    blankIndex: 2,
+    idiom: '',
+    blankIndex: 0,
     blankWord: '',
-    puzzles: ['没', '国', '德', '比', '成', '悦', '府', '山', '青', '流', '全', '非', '水', '自', '明'],
+    useIdioms: [],
+    usePuzzles:[],
+
     // Failed
     isFailed: false,
     failedTitle: '挑战失败，获得复活机会！',
@@ -32,19 +40,72 @@ Page({
     });
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  onReady: function () {
+    this.requestIdiomList();
+  },
+
+  // Request
+  requestIdiomList() {
+    wx.showLoading({
+      title: '加载中',
+    });
+
+    var that = this;
+    wx.request({
+      url: util.server + 'getIdiomList',
+      success: res => {
+        if (res.data.isSuccess) {
+          that.setData({
+            idioms: res.data.data.idioms,
+            puzzles: res.data.data.puzzles
+          });
+        }
+      },
+      complete: res => {
+        wx.hideLoading();
+        this.makeIdiomData();
+      }
+    });
+  },
+
+  makeIdiomData() {
+    // 成语
+    let idiomString = this.data.idioms[this.data.level - 1];
+    let showIdiom = idiomString.split('');
+
+    // 缺失字
+    // 此处不可为随机
+    let missIndex = 3 - this.data.level % 4;    
+    let missWord = idiomString[missIndex];
+
+    // 迷惑项
+    let puzzleShow = 15;
+    let puzzleTotal = 1751;
+    var showPuzzle = new Array();
+    for (var num = 0; num < puzzleShow; num++) {
+      let random = Math.floor(Math.random() * puzzleTotal);
+      let word = this.data.puzzles[random];
+      showPuzzle.push(word);
+    }
+    // 随机替换为缺失字
+    let rand = Math.floor(Math.random() * puzzleShow);
+    showPuzzle[rand] = missWord;
+
+    this.setData({
+      idiom: idiomString,
+      blankIndex: missIndex,
+      useIdioms: showIdiom,
+      usePuzzles: showPuzzle
+    });
 
   },
 
   chooseWord(event) {
     console.log(this.data.blankIndex);
     let data = this.data;
-    let correctWord = data.idioms[data.blankIndex];
+    let correctWord = data.useIdioms[data.blankIndex];
     let selIndex = event.currentTarget.dataset.selIndex;
-    let selWord = data.puzzles[selIndex];
+    let selWord = data.usePuzzles[selIndex];
     console.log(selWord);
 
     if (correctWord == selWord) {
