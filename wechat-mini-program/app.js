@@ -1,4 +1,6 @@
 //app.js
+const util = require('utils/util.js')
+
 App({
   onLaunch: function () {
 
@@ -43,7 +45,7 @@ App({
 
     // 获取小程序全局唯一后台接口调用凭据
     wx.request({
-      url: 'http://localhost:8080/getToken',
+      url: util.server +'getToken',
       success: res => {
         console.log(res);
         if (res.data.access_token) {
@@ -56,7 +58,7 @@ App({
   // 向后台发起login
   getSession(code) {
     wx.request({
-      url: 'http://localhost:8080/getSession',
+      url: util.server + 'getSession',
       data: {
         code: code
       },
