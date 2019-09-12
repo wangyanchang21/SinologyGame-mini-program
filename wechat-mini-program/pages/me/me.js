@@ -13,6 +13,10 @@ Page({
 
   onLoad() {
 
+    // app.openIdReadyCallback = res => {
+    //   this.requestActivitiesList();
+    // }
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

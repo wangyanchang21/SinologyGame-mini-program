@@ -68,6 +68,9 @@ App({
         if (session.data.openid) {
           this.globalData.ssessionKey = session.data.session_key;
           this.globalData.openId = session.data.openid;
+          // if (this.openIdReadyCallback) {
+          //   this.openIdReadyCallback(session)
+          // }
         } else {
           console.log('Session获取失败！' + res.errMsg);
         }
