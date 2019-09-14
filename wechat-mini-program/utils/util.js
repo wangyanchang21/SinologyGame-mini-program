@@ -15,7 +15,8 @@ const formatNumber = n => {
 }
 
 // const serverAdress = 'http://localhost:8080/';
-const serverAdress = 'http://bingying.online:8088/sinology/';
+// const serverAdress = 'http://bingying.online:8088/sinology/';
+const serverAdress = 'https://bingying.online/sinology/';
 
 
 module.exports = {
