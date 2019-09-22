@@ -90,7 +90,15 @@
   border-radius: 50rpx;
 }
 
-.user-info-button {
+.auth-text {
+  color: #666666;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+.auth-button {
+  background: #00B796;
+  color: white;
   width: 300rpx;
   height: 100rpx;
   display: flex;
@@ -98,10 +106,12 @@
   align-items: center;
 }
 
-.promise-view {
+.auth-view {
   background: #F3F3F3;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
+  display: flex;
+  flex-direction: column;
 }

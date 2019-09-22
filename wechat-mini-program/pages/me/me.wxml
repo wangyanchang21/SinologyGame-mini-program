@@ -29,6 +29,7 @@
   </view>
 </view>
 
-<view wx:if="{{!isLogin && canIUse}}" class="weui-dialog__wrp promise-view">
-  <button class="user-info-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 请授权登录 </button>
+<view wx:if="{{!isLogin && canIUse}}" class="weui-dialog__wrp auth-view">
+  <text class="auth-text">登录后方可使用个人服务</text>
+  <button class="auth-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权登录 </button>
 </view>

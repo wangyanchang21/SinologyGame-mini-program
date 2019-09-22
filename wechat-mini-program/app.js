@@ -48,8 +48,8 @@ App({
       url: util.server +'getToken',
       success: res => {
         console.log(res);
-        if (res.data.access_token) {
-          this.globalData.token = res.data.access_token;
+        if (res.data.data.access_token) {
+          this.globalData.token = res.data.data.access_token;
         }
       }
     });
@@ -65,9 +65,9 @@ App({
       success: session => {
         console.log(session);
 
-        if (session.data.openid) {
-          this.globalData.ssessionKey = session.data.session_key;
-          this.globalData.openId = session.data.openid;
+        if (session.data.data.openid) {
+          this.globalData.ssessionKey = session.data.data.session_key;
+          this.globalData.openId = session.data.data.openid;
           // if (this.openIdReadyCallback) {
           //   this.openIdReadyCallback(session)
           // }

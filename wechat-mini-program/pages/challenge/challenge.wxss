@@ -1,7 +1,7 @@
 
 .begin-button {
-  background: white;
-  color: #333333;
+  background: #00B796;
+  color: white;
   width: 50%;
   height: 100rpx;
   display: flex;
