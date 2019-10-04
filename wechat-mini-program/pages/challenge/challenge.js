@@ -44,6 +44,7 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    this.requestToRegisterOrUpdateUserDetail()
   },
 
   
@@ -63,5 +64,21 @@ Page({
         });
       }
     }
+  },
+
+  requestToRegisterOrUpdateUserDetail() {
+    wx.request({
+      url: util.server + 'registerOrUpdateUser',
+      data: {
+        openId: app.globalData.openId,
+        userName: app.globalData.userInfo.nickName,
+        userAvatar: app.globalData.userInfo.avatarUrl
+      },
+      success: res => {
+        if (res.data.isSuccess) {
+          console.log('数据注册或更新成功')
+        }
+      }
+    })
   }
 })

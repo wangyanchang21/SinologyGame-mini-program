@@ -1,9 +1,11 @@
 // pages/me/me.js
 const app = getApp()
+const util = require('../../utils/util.js')
 
 Page({
   data: {
     memberLevel: 5,
+    bestPass: 888,
     poetryNum: 123,
     wordsNum: 66,
     userInfo: {},
@@ -13,9 +15,13 @@ Page({
 
   onLoad() {
 
-    // app.openIdReadyCallback = res => {
-    //   this.requestActivitiesList();
-    // }
+    if (app.globalData.openId) {
+      this.requestUserDetail(app.globalData.openId);
+    } else {
+      app.openIdReadyCallback = res => {
+        this.requestUserDetail(res.openId);
+      }
+    }
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -69,5 +75,40 @@ Page({
         isLogin: true
       })
     }
+    this.requestToRegisterOrUpdateUserDetail();
+  },
+
+  requestUserDetail(openId) {
+    wx.request({
+      url: util.server + 'getUserInfo',
+      data: {
+        openId: openId
+      },
+      success: res => {
+        if (res.data.isSuccess) {
+          console.log(res.data.data)
+          this.setData({
+            bestPass: res.data.data.bestPass,
+            memberLevel: res.data.data.userLevel
+          })
+        }
+      }
+    });
+  },
+
+  requestToRegisterOrUpdateUserDetail() {
+    wx.request({
+      url: util.server + 'registerOrUpdateUser',
+      data: {
+        openId: app.globalData.openId,
+        userName: app.globalData.userInfo.nickName,
+        userAvatar: app.globalData.userInfo.avatarUrl
+      },
+      success: res => {
+        if (res.data.isSuccess) {
+          console.log('数据注册或更新成功')
+        }
+      }
+    })
   }
 })

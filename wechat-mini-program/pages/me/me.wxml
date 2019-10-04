@@ -12,7 +12,7 @@
     <view class="user-info-view">
       <text class="user-info-item">江湖贺号：{{userInfo.nickName}}</text>
       <text class="user-info-item">英雄出处：{{userInfo.province}}-{{userInfo.country}}</text>
-      <text class="user-info-item">巅峰破关：第888关</text>
+      <text class="user-info-item">巅峰破关：第{{bestPass}}关</text>
     </view>
   </view>
 

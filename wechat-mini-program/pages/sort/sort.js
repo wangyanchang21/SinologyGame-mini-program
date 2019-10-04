@@ -1,4 +1,6 @@
 // pages/sort/sort.js
+const util = require('../../utils/util.js')
+
 Page({
 
   /**
@@ -109,6 +111,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.requestRanklist();
+  },
 
+  requestRanklist() {
+    wx.request({
+      url: util.server + 'getUserRankList',
+      success: res => {
+        if (res.data.isSuccess) {
+          console.log(res.data.data)
+          this.setData({
+            sort: res.data.data
+          })
+        }
+      }
+    })
   }
 })
