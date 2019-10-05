@@ -9,9 +9,10 @@ Page({
   },
 
   onLoad(options) {
+    let that = this;
     console.log(options.url);
 
-    this.setData({
+    that.setData({
       url: options.url
     });
   },

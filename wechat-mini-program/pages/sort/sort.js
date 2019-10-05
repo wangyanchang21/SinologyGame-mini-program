@@ -96,16 +96,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.requestRanklist();
+    let that = this;
+
+    that.requestRanklist();
   },
 
   requestRanklist() {
+    let that = this;
+
     wx.request({
       url: util.server + 'getUserRankList',
       success: res => {
         if (res.data.isSuccess) {
           console.log(res.data.data)
-          this.setData({
+          that.setData({
             sort: res.data.data
           })
         }

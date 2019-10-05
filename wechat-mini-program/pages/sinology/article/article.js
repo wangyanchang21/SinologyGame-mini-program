@@ -13,9 +13,11 @@ Page({
   },
 
   onLoad(options) {
+    let that = this;
+
     var poemJson = JSON.parse(options.poem)
 
-    this.setData({
+    that.setData({
       title: poemJson.title,
       chapter: poemJson.chapter,
       section: poemJson.section,

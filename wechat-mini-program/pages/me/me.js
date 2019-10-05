@@ -14,29 +14,30 @@ Page({
   },
 
   onLoad() {
+    let that = this;
 
     // 同步最高破关和用户等级
     if (app.globalData.bestPass) {
-      this.setData({
+      that.setData({
         bestPass: app.globalData.bestPass,
       })
     }
     if (app.globalData.userLevel) {
-      this.setData({
+      that.setData({
         memberLevel: app.globalData.userLevel
       })
     }
 
     if (app.globalData.userInfo) {
-      this.setData({
+      that.setData({
         userInfo: app.globalData.userInfo,
         isLogin: true
       })
-    } else if (this.data.canIUse) {
+    } else if (that.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
-        this.setData({
+        that.setData({
           userInfo: res.userInfo,
           isLogin: true
         })
@@ -46,7 +47,7 @@ Page({
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
-          this.setData({
+          that.setData({
             userInfo: res.userInfo,
             isLogin: true
           })
@@ -70,16 +71,18 @@ Page({
   },
 
   getUserInfo(e) {
+    let that = this;
+
     console.log(e)
     let userInfo = e.detail.userInfo;
     if (userInfo) {
       app.globalData.userInfo = e.detail.userInfo
-      this.setData({
+      that.setData({
         userInfo: e.detail.userInfo,
         isLogin: true
       })
     }
-    this.requestToRegisterOrUpdateUserDetail();
+    that.requestToRegisterOrUpdateUserDetail();
   },
 
   requestToRegisterOrUpdateUserDetail() {

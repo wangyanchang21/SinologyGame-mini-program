@@ -35,24 +35,29 @@ Page({
   },
 
   onLoad() {
+    let that = this;
+
     let pass = app.globalData.currentPass
     console.log(pass)
-    this.setData({
+    that.setData({
       pass: pass
     });
   },
 
   onReady: function () {
-    this.requestIdiomList();
+    let that = this;
+
+    that.requestIdiomList();
   },
 
   // Request
   requestIdiomList() {
+    var that = this;
+
     wx.showLoading({
       title: '加载中',
     });
 
-    var that = this;
     wx.request({
       url: util.server + 'getIdiomList',
       success: res => {
@@ -65,19 +70,21 @@ Page({
       },
       complete: res => {
         wx.hideLoading();
-        this.makeIdiomData();
+        that.makeIdiomData();
       }
     });
   },
 
   makeIdiomData() {
+    let that = this;
+
     // 成语
-    let idiomString = this.data.idioms[this.data.pass - 1];
+    let idiomString = that.data.idioms[that.data.pass - 1];
     let showIdiom = idiomString.split('');
 
     // 缺失字
     // 此处不可为随机
-    let missIndex = 3 - this.data.pass % 4;    
+    let missIndex = 3 - that.data.pass % 4;    
     let missWord = idiomString[missIndex];
 
     // 迷惑项
@@ -86,14 +93,14 @@ Page({
     var showPuzzle = new Array();
     for (var num = 0; num < puzzleShow; num++) {
       let random = Math.floor(Math.random() * puzzleTotal);
-      let word = this.data.puzzles[random];
+      let word = that.data.puzzles[random];
       showPuzzle.push(word);
     }
     // 随机替换为缺失字
     let rand = Math.floor(Math.random() * puzzleShow);
     showPuzzle[rand] = missWord;
 
-    this.setData({
+    that.setData({
       idiom: idiomString,
       blankIndex: missIndex,
       useIdioms: showIdiom,
@@ -103,8 +110,10 @@ Page({
   },
 
   chooseWord(event) {
-    console.log(this.data.blankIndex);
-    let data = this.data;
+    let that = this;
+
+    console.log(that.data.blankIndex);
+    let data = that.data;
     let correctWord = data.useIdioms[data.blankIndex];
     let selIndex = event.currentTarget.dataset.selIndex;
     let selWord = data.usePuzzles[selIndex];
@@ -112,20 +121,20 @@ Page({
 
     if (correctWord == selWord) {
       // Success
-      this.setData({
+      that.setData({
         blankWord: selWord
       });
-      app.globalData.currentPass = this.data.pass + 1;
-      this.requestToUpdatePass();
+      app.globalData.currentPass = that.data.pass + 1;
+      that.requestToUpdatePass();
 
-      this.setData({
+      that.setData({
         isSuccess: true
       });
 
-      this.request
+      that.request
     } else {
       // Failed to show HuaxiaAd
-      this.setData({
+      that.setData({
         isFailed: true
       });
     }
@@ -160,13 +169,15 @@ Page({
 
   // Failed Dialog
   closeHuaxiaAd() {
-    this.setData({
+    let that = this;
+
+    that.setData({
       isFailed: false
     });
   },
   goToAdPage() {
     wx.navigateTo({
-      url: `/pages/common/web-view?url=${this.data.adURL}`
+      url: `/pages/common/web-view?url=${that.data.adURL}`
     })
   }
 })

@@ -94,11 +94,9 @@ App({
       success: res => {
         if (res.data.isSuccess) {
           console.log(res.data.data)
-          that.setData({
-            bestPass: res.data.data.bestPass,
-            currentPass: res.data.data.currentPass,
-            userLevel: res.data.data.userLevel
-          })
+          that.globalData.bestPass = res.data.data.bestPass;
+          that.globalData.currentPass = res.data.data.currentPass;
+          that.globalData.userLevel = res.data.data.userLevel;
         }
       }
     });

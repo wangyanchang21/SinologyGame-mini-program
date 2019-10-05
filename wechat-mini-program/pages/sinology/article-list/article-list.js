@@ -14,50 +14,58 @@ Page({
   },
 
   onLoad(options) {
-    this.setData({
+    let that = this;
+
+    that.setData({
       title: options.title
     });
 
     // 初次加载，确定接口和总页数
-    this.makeInterfaceAndPages();
+    that.makeInterfaceAndPages();
   },
 
   onReachBottom() {
+    let that = this;
+
     // 下拉触底，先判断是否有请求正在进行中
-    if (!this.loading && this.data.page <= this.data.totalPages) {
-      this.loading = true;
-      this.requestPoemList(this.data.page);
+    if (!that.loading && that.data.page <= that.data.totalPages) {
+      that.loading = true;
+      that.requestPoemList(that.data.page);
     }
   },
 
   onReady: function () {
+    let that = this;
+
     // 请求第一页数据
-    this.requestPoemList();
+    that.requestPoemList();
   },
 
   // 接口和总页数分类
   makeInterfaceAndPages() {
+    let that = this;
+
     var book = '';
     var bookPages = 0;
-    if (this.data.title == '唐诗') {
+    if (that.data.title == '唐诗') {
       book = 'getTangList';
       bookPages = 55;
-    } else if (this.data.title == '宋词') {
+    } else if (that.data.title == '宋词') {
       book = 'getSongList';
       bookPages = 21;
-    } else if (this.data.title == '论语') {
+    } else if (that.data.title == '论语') {
       book = 'getLunyuList';
-    } else if (this.data.title == '孟子') {
+    } else if (that.data.title == '孟子') {
       book = 'getMengziList';
-    } else if (this.data.title == '诗经') {
+    } else if (that.data.title == '诗经') {
       book = 'getShijingList';
-    } else if (this.data.title == '大学') {
+    } else if (that.data.title == '大学') {
       book = 'getDaxue';
-    } else if (this.data.title == '中庸') {
+    } else if (that.data.title == '中庸') {
       book = 'getZhongyong';
     }
 
-    this.setData({
+    that.setData({
       listInterface: book,
       totalPages: bookPages
     });
@@ -95,8 +103,10 @@ Page({
   },
 
   goToDetail(event) {
+    let that = this;
+
     let index = event.currentTarget.dataset.selectNum;
-    let poem = this.data.articles[index];
+    let poem = that.data.articles[index];
     var poemJson = JSON.stringify(poem);
     console.log(poem);
 
