@@ -2,7 +2,7 @@
 <view class="idiom-page">
 
   <!-- 关卡 -->
-  <view class="level-view">第 {{level}} 关</view>
+  <view class="level-view">第 {{pass}} 关</view>
 
   <!-- 成语 -->
   <view class="idiom-view">

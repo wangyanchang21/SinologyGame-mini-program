@@ -3,6 +3,7 @@ const util = require('utils/util.js')
 
 App({
   onLaunch: function () {
+    let that = this;
 
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -15,7 +16,7 @@ App({
         console.log(res);
 
         if (res.code) {
-          this.getSession(res.code);
+          that.getSession(res.code);
         } else {
           console.log('登录失败！' + res.errMsg);
         }
@@ -31,12 +32,12 @@ App({
             success: res => {
               console.log(res)
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+              that.globalData.userInfo = res.userInfo
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
+              if (that.userInfoReadyCallback) {
+                that.userInfoReadyCallback(res)
               }
             }
           })
@@ -50,7 +51,7 @@ App({
       success: res => {
         console.log(res);
         if (res.data.data.access_token) {
-          this.globalData.token = res.data.data.access_token;
+          that.globalData.token = res.data.data.access_token;
         }
       }
     });
@@ -58,6 +59,8 @@ App({
 
   // 向后台发起login
   getSession(code) {
+    let that = this;
+
     wx.request({
       url: util.server + 'getSession',
       data: {
@@ -67,13 +70,35 @@ App({
         console.log(session);
 
         if (session.data.data.openid) {
-          this.globalData.ssessionKey = session.data.data.session_key;
-          this.globalData.openId = session.data.data.openid;
-          // if (this.openIdReadyCallback) {
-          //   this.openIdReadyCallback(session)
-          // }
+          that.globalData.ssessionKey = session.data.data.session_key;
+          that.globalData.openId = session.data.data.openid;
+          if (that.openIdReadyCallback) {
+            that.openIdReadyCallback(session)
+          }
+          that.requestUserDetail();
         } else {
           console.log('Session获取失败！' + res.errMsg);
+        }
+      }
+    });
+  },
+
+  requestUserDetail() {
+    let that = this;
+    
+    wx.request({
+      url: util.server + 'getUserInfo',
+      data: {
+        openId: that.globalData.openId
+      },
+      success: res => {
+        if (res.data.isSuccess) {
+          console.log(res.data.data)
+          that.setData({
+            bestPass: res.data.data.bestPass,
+            currentPass: res.data.data.currentPass,
+            userLevel: res.data.data.userLevel
+          })
         }
       }
     });
@@ -84,6 +109,8 @@ App({
     ssessionKey: null,
     openId: null,
     token: null,
-    currentLevel: 1
+    userLevel: 1,
+    bestPass: 1,
+    currentPass: 1
   }
 })

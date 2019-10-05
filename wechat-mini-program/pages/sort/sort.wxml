@@ -5,11 +5,11 @@
   <view wx:for="{{sort}}" wx:key="*this" class="weui-cell">
     <!-- Cell Left -->
     <view class="weui-cell__hd sort-cell-hd">
-      <view class="sort-view">{{item.rank}}</view>
-      <image src="{{item.avatorURL}}" class="avator-image"></image>
+      <view class="sort-view">{{index + 1}}</view>
+      <image src="{{item.userAvatar}}" class="avator-image"></image>
     </view>
     <!-- Cell Middle Right -->
-    <view class="weui-cell__bd letter-font">{{item.name}}</view>
-    <view class="weui-cell__ft letter-font">第{{item.passLevel}}关</view>
+    <view class="weui-cell__bd letter-font">{{item.userName}}</view>
+    <view class="weui-cell__ft letter-font">第{{item.bestPass}}关</view>
   </view>
 </view>

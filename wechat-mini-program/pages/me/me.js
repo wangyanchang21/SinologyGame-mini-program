@@ -15,12 +15,16 @@ Page({
 
   onLoad() {
 
-    if (app.globalData.openId) {
-      this.requestUserDetail(app.globalData.openId);
-    } else {
-      app.openIdReadyCallback = res => {
-        this.requestUserDetail(res.openId);
-      }
+    // 同步最高破关和用户等级
+    if (app.globalData.bestPass) {
+      this.setData({
+        bestPass: app.globalData.bestPass,
+      })
+    }
+    if (app.globalData.userLevel) {
+      this.setData({
+        memberLevel: app.globalData.userLevel
+      })
     }
 
     if (app.globalData.userInfo) {
@@ -76,24 +80,6 @@ Page({
       })
     }
     this.requestToRegisterOrUpdateUserDetail();
-  },
-
-  requestUserDetail(openId) {
-    wx.request({
-      url: util.server + 'getUserInfo',
-      data: {
-        openId: openId
-      },
-      success: res => {
-        if (res.data.isSuccess) {
-          console.log(res.data.data)
-          this.setData({
-            bestPass: res.data.data.bestPass,
-            memberLevel: res.data.data.userLevel
-          })
-        }
-      }
-    });
   },
 
   requestToRegisterOrUpdateUserDetail() {

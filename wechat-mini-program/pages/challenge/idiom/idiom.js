@@ -1,4 +1,5 @@
 // pages/challenge/idiom/idiom.js
+const app = getApp()
 const util = require('../../../utils/util.js')
 
 Page({
@@ -12,7 +13,7 @@ Page({
     puzzles: [],
 
     // made-up data
-    level: 1,
+    pass: 1,
     idiom: '',
     blankIndex: 0,
     blankWord: '',
@@ -34,9 +35,10 @@ Page({
   },
 
   onLoad() {
-    let level = getApp().globalData.currentLevel;
+    let pass = app.globalData.currentPass
+    console.log(pass)
     this.setData({
-      level: level
+      pass: pass
     });
   },
 
@@ -70,12 +72,12 @@ Page({
 
   makeIdiomData() {
     // 成语
-    let idiomString = this.data.idioms[this.data.level - 1];
+    let idiomString = this.data.idioms[this.data.pass - 1];
     let showIdiom = idiomString.split('');
 
     // 缺失字
     // 此处不可为随机
-    let missIndex = 3 - this.data.level % 4;    
+    let missIndex = 3 - this.data.pass % 4;    
     let missWord = idiomString[missIndex];
 
     // 迷惑项
@@ -113,16 +115,35 @@ Page({
       this.setData({
         blankWord: selWord
       });
-      getApp().globalData.currentLevel = this.data.level + 1;
+      app.globalData.currentPass = this.data.pass + 1;
+      this.requestToUpdatePass();
+
       this.setData({
         isSuccess: true
       });
+
+      this.request
     } else {
       // Failed to show HuaxiaAd
       this.setData({
         isFailed: true
       });
     }
+  },
+
+  requestToUpdatePass() {
+    wx.request({
+      url: util.server + 'updateUserInfo',
+      data: {
+        openId: app.globalData.openId,
+        currentPass: app.globalData.currentPass
+      },
+      success: res => {
+        if (res.data.isSuccess) {
+          console.log(res.data.data)
+        }
+      }
+    });
   },
 
   // Success
