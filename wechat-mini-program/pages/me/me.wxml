@@ -17,7 +17,7 @@
   </view>
 
   <!-- 诗词 -->
-  <view class="poetry-view">
+  <!-- <view class="poetry-view">
     <view class="poetry-item poetry-item-1">
       <image class="poetry-image" src="/images/me/poetry.png"> </image>
       <view>已阅{{poetryNum}}首</view>
@@ -26,7 +26,7 @@
       <image class="poetry-image" src="/images/me/words.png"> </image>
       <view>已阅{{wordsNum}}首</view>
     </view>
-  </view>
+  </view> -->
 </view>
 
 <view wx:if="{{!isLogin && canIUse}}" class="weui-dialog__wrp auth-view">
