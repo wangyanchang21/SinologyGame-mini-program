@@ -29,13 +29,13 @@
 
         <!-- Body -->
         <view class="weui-dialog__bd">
-          <image class="weui-article__img" src="/images/challenge/huaxiaAd.png" mode="scaleToFill" style="max-width:100%;" bindtap="goToAdPage"/>
+          <image class="weui-article__img" src="/images/challenge/onechina.png" mode="scaleToFill" style="max-width:100%;" bindtap="goToAdPage"/>
         </view>
 
         <!-- Footer -->
         <view class="weui-dialog__ft">
             <view class="weui-dialog__btn" bindtap="redirectToHome">{{failedGiveUp}}</view>
-            <view class="weui-dialog__btn weui-dialog__btn_default" bindtap="closeHuaxiaAd">{{failedRevive}}</view>
+            <view class="weui-dialog__btn weui-dialog__btn_default" bindtap="closeAd">{{failedRevive}}</view>
         </view>
 
       </view>

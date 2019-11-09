@@ -23,9 +23,9 @@ Page({
     // Failed
     isFailed: false,
     failedTitle: '挑战失败，获得复活机会！',
-    failedGiveUp: '放弃',
-    failedRevive: '花虾出借100w',
-    adURL: 'https://apitest.huaxiafinance.com/laoxia2/laoxia.html',
+    failedGiveUp: '放弃复活',
+    failedRevive: '中国万岁',
+    adURL: 'https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD/106554',
     // Success
     isSuccess: false,
     successTitle: '挑战成功',
@@ -133,7 +133,7 @@ Page({
 
       that.request
     } else {
-      // Failed to show HuaxiaAd
+      // Failed to show Ad
       that.setData({
         isFailed: true
       });
@@ -168,7 +168,7 @@ Page({
   },
 
   // Failed Dialog
-  closeHuaxiaAd() {
+  closeAd() {
     let that = this;
 
     that.setData({
@@ -176,8 +176,10 @@ Page({
     });
   },
   goToAdPage() {
-    wx.navigateTo({
-      url: `/pages/common/web-view?url=${that.data.adURL}`
-    })
+    // 暂不跳转
+    // let that = this;
+    // wx.navigateTo({
+    //   url: `/pages/common/web-view?url=${that.data.adURL}`
+    // })
   }
 })

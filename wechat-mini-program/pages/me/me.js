@@ -4,10 +4,10 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
-    memberLevel: 5,
-    bestPass: 888,
-    poetryNum: 123,
-    wordsNum: 66,
+    memberLevel: 1,
+    bestPass: 1,
+    poetryNum: 1,
+    wordsNum: 1,
     userInfo: {},
     isLogin: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -15,18 +15,6 @@ Page({
 
   onLoad() {
     let that = this;
-
-    // 同步最高破关和用户等级
-    if (app.globalData.bestPass) {
-      that.setData({
-        bestPass: app.globalData.bestPass,
-      })
-    }
-    if (app.globalData.userLevel) {
-      that.setData({
-        memberLevel: app.globalData.userLevel
-      })
-    }
 
     if (app.globalData.userInfo) {
       that.setData({
@@ -56,6 +44,54 @@ Page({
     }
   },
 
+  onShow() {
+    let that = this;
+
+    that.requestNewestUserInfo();
+  },
+
+  requestNewestUserInfo() {
+    let that = this;
+
+    wx.request({
+      url: util.server + 'getUserInfo',
+      data: {
+        openId: app.globalData.openId
+      },
+      success: res => {
+        if (res.data.isSuccess) {
+          that.setData({
+            bestPass: res.data.bestPass,
+            memberLevel: res.data.userLevel
+          });
+          app.globalData.bestPass = res.data.data.bestPass;
+          app.globalData.currentPass = res.data.data.currentPass;
+          app.globalData.userLevel = res.data.data.userLevel;
+          
+          that.aynchronousUserInfo();
+        }
+      }
+    })
+  },
+
+  aynchronousUserInfo() {
+    let that = this;
+
+    // 同步最高破关和用户等级
+    if (app.globalData.bestPass) {
+      that.setData({
+        bestPass: app.globalData.bestPass,
+      })
+    }
+    if (app.globalData.userLevel) {
+      that.setData({
+        memberLevel: app.globalData.userLevel
+      })
+    }
+    console.log(app.globalData.bestPass)
+    console.log(that.data.bestPass)
+  },
+
   onPullDownRefresh() {
     setTimeout(function () {
       wx.stopPullDownRefresh()
@@ -65,9 +101,9 @@ Page({
   //事件处理函数
   bindViewTap() {
     // debug状态下执行
-    wx.navigateTo({
-      url: '/pages/me/login-records/login-records'
-    })
+    // wx.navigateTo({
+    //   url: '/pages/me/login-records/login-records'
+    // })
   },
 
   getUserInfo(e) {

@@ -1,5 +1,6 @@
 // pages/challenge/challenge.js
 const app = getApp()
+const util = require('../../utils/util.js')
 
 Page({
   
@@ -38,19 +39,17 @@ Page({
     }
   },
 
-  getUserInfo(e) {
-    let that = this;
+  // getUserInfo(e) {
+  //   let that = this;
 
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    that.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-    that.requestToRegisterOrUpdateUserDetail()
-  },
-
-  
+  //   console.log(e)
+  //   app.globalData.userInfo = e.detail.userInfo
+  //   that.setData({
+  //     userInfo: e.detail.userInfo,
+  //     hasUserInfo: true
+  //   })
+  //   that.requestToRegisterOrUpdateUserDetail()
+  // },
 
   beginGame(e) {
     let that = this;
@@ -61,6 +60,7 @@ Page({
         url: '/pages/challenge/idiom/idiom'
       });
     } else {
+
       let userInfo = e.detail.userInfo;
       if (userInfo) {
         app.globalData.userInfo = e.detail.userInfo;
@@ -68,6 +68,7 @@ Page({
           isLogin: true
         });
       }
+      that.requestToRegisterOrUpdateUserDetail()
     }
   },
 
@@ -80,6 +81,7 @@ Page({
         userAvatar: app.globalData.userInfo.avatarUrl
       },
       success: res => {
+        console.log(res.data)
         if (res.data.isSuccess) {
           console.log('数据注册或更新成功')
         }
