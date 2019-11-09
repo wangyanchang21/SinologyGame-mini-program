@@ -4,6 +4,6 @@
 
   <view class="title">{{title}} {{chapter}} {{section}}</view>
   <view class="author">{{author}}</view>
-  <view wx:for="{{paragraphs}}" wx:key="{{item.title}}" class="content">{{item}}</view>
+  <view wx:for="{{paragraphs}}" wx:key="{{item.title}}" class="{{isParagraph==true ? 'left' : 'center'}}-content">{{item}}</view>
 
 </view>

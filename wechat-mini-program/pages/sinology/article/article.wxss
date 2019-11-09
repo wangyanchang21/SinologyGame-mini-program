@@ -26,8 +26,16 @@
   margin-bottom: 20rpx;
 }
 
-.content {
+.center-content {
   text-align: center;
+  font-size: 30rpx;
+  width: 100%;
+  line-height: 80rpx;
+}
+
+.left-content {
+  text-align: left;
+  text-indent:2em;
   font-size: 30rpx;
   width: 100%;
   line-height: 80rpx;

@@ -111,7 +111,7 @@ Page({
     console.log(poem);
 
     wx.navigateTo({
-      url: `/pages/sinology/article/article?poem=${poemJson}`
+      url: `/pages/sinology/article/article?poem=${poemJson}&type=${that.data.title}`
     });
   }
 })
