@@ -1,4 +1,9 @@
 /* pages/sinology/sinology.wxss */
+page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .sinology-page {
   background: #F3F3F3;
