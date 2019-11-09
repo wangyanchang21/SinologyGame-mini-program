@@ -47,6 +47,13 @@ Page({
   onShow() {
     let that = this;
 
+    if (app.globalData.userInfo) {
+      that.setData({
+        userInfo: app.globalData.userInfo,
+        isLogin: true
+      })
+    }
+    
     that.requestNewestUserInfo();
   },
 
