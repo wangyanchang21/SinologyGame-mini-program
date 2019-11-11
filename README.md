@@ -1,5 +1,5 @@
 
-## 乐趣国学
+# 乐趣国学
 
 **乐趣国学**，以趣味方式学习国学，涵盖成语游戏、唐诗、宋词、四书五经。
 
@@ -25,7 +25,8 @@
 
 ## 开发工具
 
-[微信官方开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+- [微信小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+- [微信官方开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 
 ## 作者
 
@@ -33,4 +34,4 @@
 
 ## 执照
 
-SinologyGame-mini-program获取了MIT许可证的许可。
+SinologyGame-mini-program获取了[MIT许可证](https://github.com/wangyanchang21/SinologyGame-mini-program/blob/master/LICENSE)。
