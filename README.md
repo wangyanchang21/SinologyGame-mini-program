@@ -28,6 +28,10 @@
 - [微信小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 - [微信官方开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 
+## 对应java后端源码
+
+[SinologyGame-java-server](https://github.com/wangyanchang21/SinologyGame-java-server)
+
 ## 作者
 
 - DCSnail, [wangyanchang21](https://github.com/wangyanchang21)
